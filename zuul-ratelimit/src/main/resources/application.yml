@@ -1,0 +1,18 @@
+server:
+  port: 9393
+spring:
+  application:
+    name: zuul-ratelimit
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7777/eureka/
+#构建路由地址
+zuul:
+  routes:
+    #自定义
+    demo2:
+      #匹配的路由规则
+      path: /demo/**
+      #路由的目标服务名
+      serviceId: demo
