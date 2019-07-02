@@ -1,0 +1,10 @@
+server:
+  port: 5555
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7777/eureka/
+spring:
+  application:
+    name: demo
+

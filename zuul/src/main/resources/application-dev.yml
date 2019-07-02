@@ -1,2 +1,31 @@
 server:
-  port: 8080
+  port: 5293
+spring:
+  application:
+    name: zuul-eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7777/eureka/
+#构建路由地址
+zuul:
+  routes:
+    #自定义
+    demo2:
+      #匹配的路由规则
+      path: /demo/**
+      #路由的目标服务名
+      serviceId: demo
+      #通过制定路由参数来设置
+      #将制定路由的敏感头设置为空
+      sensitiveHeaders:
+    #忽略表达式
+    # 不路由demo2开头的任意请求
+    ignored-patterns: /demo2/**
+    #本地跳转
+    zuul-service:
+      path: /api/**
+      serviceId: forward:/test/
+  #通过设置全局参数为空来覆盖默认值
+  #允许敏感头,设置为空
+  sensitive-headers:

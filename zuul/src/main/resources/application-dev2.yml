@@ -1,2 +1,24 @@
 server:
-  port: 8081
+  port: 5294
+spring:
+  application:
+    name: zuul-ribbon
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7777/eureka/
+#构建路由地址
+zuul:
+  routes:
+    #自定义
+    demo2:
+      #匹配的路由规则
+      path: /demo/**
+      #路由的目标服务名
+      serviceId: demo
+ribbon:
+  eureka:
+    enabled: false
+demo:
+  ribbon:
+    listOfServers: http://127.0.0.1:5555/

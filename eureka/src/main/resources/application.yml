@@ -1,0 +1,15 @@
+server:
+  port: 7777
+eureka:
+  client:
+    #关闭注册自己
+    register-with-eureka: false
+    #是否从eureka获取注册信息
+    fetch-registry: false
+    #访问地址
+    service-url:
+      defaultZone: http://127.0.0.1:7777/eureka/
+      #是否开启保护模式
+  server:
+    enable-self-preservation: false
+
