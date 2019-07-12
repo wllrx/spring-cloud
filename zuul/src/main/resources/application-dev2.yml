@@ -21,4 +21,4 @@ ribbon:
     enabled: false
 demo:
   ribbon:
-    listOfServers: http://127.0.0.1:5555/
+     listOfServers: http://127.0.0.1:5555/

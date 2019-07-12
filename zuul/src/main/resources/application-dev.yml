@@ -7,6 +7,18 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:7777/eureka/
+#负载均衡超时时间设置
+ribbon:
+  ReadTimeout: 3000
+  socketTimeOut: 4000
+hystrix:
+  command:
+    #default默认所有,可指定服务名
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
 #构建路由地址
 zuul:
   routes:
@@ -29,3 +41,4 @@ zuul:
   #通过设置全局参数为空来覆盖默认值
   #允许敏感头,设置为空
   sensitive-headers:
+
